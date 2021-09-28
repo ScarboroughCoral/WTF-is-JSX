@@ -10,12 +10,12 @@ namespace WTFISJSX {
     type TextNode = string;
 }
 
-function hyper(nodeName: keyof HTMLElementTagNameMap, attributes, ...args: WTFISJSX.Node[]): WTFISJSX.Node {
+export function hyper(nodeName: keyof HTMLElementTagNameMap, attributes, ...args: WTFISJSX.Node[]): WTFISJSX.Node {
     const children = args.length > 0 ? [...args] : null;
     return { nodeName, attributes, children };
 }
 
-function render(vnode: WTFISJSX.Node) {
+export function render(vnode: WTFISJSX.Node) {
     if (typeof vnode === 'string') return document.createTextNode(vnode);
 
     const node = document.createElement(vnode.nodeName);
